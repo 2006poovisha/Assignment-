@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+class Vehicle {
+    String brand;
+    int speed;
+
+    public void display() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed);
+    }
+}
+
+class Car extends Vehicle {
+    int doors;
+    public void carInfo() {
+        System.out.println("Car with " + doors + " doors.");
+    }
+}
+
+class Bike extends Vehicle {
+    boolean hasGear;
+    public void bikeInfo() {
+        System.out.println("Bike with gear: " + hasGear);
+    }
+}
+
+public class VehicleSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Car c = new Car();
+        System.out.print("Enter Car Brand: ");
+        c.brand = sc.nextLine();
+        System.out.print("Enter Car Speed: ");
+        c.speed = sc.nextInt();
+        System.out.print("Enter Number of Doors: ");
+        c.doors = sc.nextInt();
+        c.display();
+        c.carInfo();
+
+        sc.nextLine(); // consume newline
+        Bike b = new Bike();
+        System.out.print("\nEnter Bike Brand: ");
+        b.brand = sc.nextLine();
+        System.out.print("Enter Bike Speed: ");
+        b.speed = sc.nextInt();
+        System.out.print("Does bike have gear? (true/false): ");
+        b.hasGear = sc.nextBoolean();
+        b.display();
+        b.bikeInfo();
+
+        sc.close();
+    }
+}
